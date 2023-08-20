@@ -1,9 +1,6 @@
 
 package tm22012;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -20,6 +17,7 @@ public class Veterinaria {
     public void imprimirInformacionExpediente(int indice) {
         if (indice >= 0 && indice < expedientes.size()) {
             Expediente expediente1 = expedientes.get(indice);
+            expediente1.calcularPrecio();
             expediente1.imprimirInformacion();
         } else {
             System.out.println("Índice fuera de rango.");

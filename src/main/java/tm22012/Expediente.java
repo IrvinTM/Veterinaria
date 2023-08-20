@@ -1,6 +1,7 @@
 
 package tm22012;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -10,22 +11,34 @@ public class Expediente {
     private Mascota mascota;
     private static int numeroDeConsulta =0;
     private String diagnostico;
-    private LocalDateTime fecha;
+    private  String fecha;
     private  String veterinario;
     private int id;
+    private float precioConsulta;
+    public static DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("EEEE, dd/MMMM/yyyy hh:mm a");
 
 
     public Expediente() {
-         numeroDeConsulta++;
-         id = numeroDeConsulta;
+        numeroDeConsulta++;
+        this.id = numeroDeConsulta;
+        this.fecha = LocalDateTime.now().format(formatoFecha);
 
     }
 
     public Expediente(Mascota mascota, int numeroDeConsulta, String diagnostico, LocalDateTime fecha, String veterinario) {
         this.mascota = mascota;
         this.diagnostico = diagnostico;
-        this.fecha = LocalDateTime.now();
+        this.fecha = LocalDateTime.now().format(formatoFecha);
         this.veterinario = veterinario;
+        this.id = numeroDeConsulta;
+    }
+
+    public void setPrecioConsulta(float precioConsulta) {
+        this.precioConsulta = precioConsulta;
+    }
+
+    public float getPrecioConsulta() {
+        return precioConsulta;
     }
 
     public static int getNumeroDeConsulta() {
@@ -40,13 +53,6 @@ public class Expediente {
         this.diagnostico = diagnostico;
     }
 
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 
     public String getVeterinario() {
         return veterinario;
@@ -70,6 +76,7 @@ public class Expediente {
         System.out.println("Fecha de consulta: "+fecha);
         System.out.println("Diagnostico: "+diagnostico);
         System.out.println("Veterinario: "+veterinario);
+        System.out.println("Precio de la consulta: "+precioConsulta);
     }
 
     public void imprimirMascota(){
@@ -79,12 +86,17 @@ public class Expediente {
         System.out.println("Tipo de mascota: "+mascota.getTipoDeMascota());
     }
 
-
-        
-
-    
-
-
-
-    
+    public void calcularPrecio(){
+        if(mascota.getEdad()<2){
+            setPrecioConsulta(10);
+            
+        }else if(mascota.getEdad()>=2 && mascota.getEdad()<=7){
+            setPrecioConsulta(25);
+            
+        }
+        else if(mascota.getEdad()>7){
+            setPrecioConsulta(35);
+        }
+    }
 }
+

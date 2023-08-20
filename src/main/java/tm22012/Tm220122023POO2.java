@@ -1,11 +1,11 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 ---------COSAS POR TEMINAR EN EL PROGRAMA----------
----- crear un metodo para imprimir el expediente y la mascota por separado y agregar la opcion al menu
+---- crear un metodo para imprimir el expediente y la mascota por separado y agregar la opcion al menu//done
 ----sumar uno al sub menu de citas para que coincida y sea mas intuitivo//done 
 ----agregar el atributo de el precio con el metodo para clacularlo
----- arreglar la fecha automatica
-----arreglar que no imprime el tipo de mascota y quye imprime el mis objeto mascota siempre
+---- arreglar la fecha automatica//done
+----arreglar que no imprime el tipo de mascota y quye imprime el mis objeto mascota siempre// done
 ----
  */
 
@@ -22,8 +22,8 @@ public class Tm220122023POO2 {
     public static void main(String[] args) {
 
         int opcion;
-        Mascota mascota1 = new Mascota();
-        Expediente expediente1 = new Expediente();
+        
+        
         Veterinaria local1 = new Veterinaria();
 
 
@@ -39,6 +39,8 @@ public class Tm220122023POO2 {
 
         switch (opcion) {
             case 1:
+            Mascota mascota1 = new Mascota();
+            Expediente expediente1 = new Expediente();
                 System.out.println("Ingresanddo informaacion de la cita");
                 System.out.println("Ingrese la edad de su mascota");
                 mascota1.setEdad(teclado.nextInt());

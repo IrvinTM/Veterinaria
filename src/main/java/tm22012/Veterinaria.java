@@ -1,6 +1,7 @@
 
 package tm22012;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class Veterinaria {
 
-    public List<Expediente> expedientes = new ArrayList<Expediente>();
+    public ArrayList<Expediente> expedientes = new ArrayList<Expediente>();
 
     public void agregarExpediente(Expediente Expediente) {
      expedientes.add(Expediente);
@@ -20,6 +21,14 @@ public class Veterinaria {
         if (indice >= 0 && indice < expedientes.size()) {
             Expediente expediente1 = expedientes.get(indice);
             expediente1.imprimirInformacion();
+        } else {
+            System.out.println("Índice fuera de rango.");
+        }
+    }
+    public void imprimirInformacionMascota(int indice) {
+        if (indice >= 0 && indice < expedientes.size()) {
+            Expediente expediente1 = expedientes.get(indice);
+            expediente1.imprimirMascota();
         } else {
             System.out.println("Índice fuera de rango.");
         }

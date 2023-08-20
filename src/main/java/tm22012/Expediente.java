@@ -12,12 +12,16 @@ public class Expediente {
     private String diagnostico;
     private LocalDateTime fecha;
     private  String veterinario;
+    private int id;
+
 
     public Expediente() {
+         numeroDeConsulta++;
+         id = numeroDeConsulta;
+
     }
 
     public Expediente(Mascota mascota, int numeroDeConsulta, String diagnostico, LocalDateTime fecha, String veterinario) {
-        Expediente.numeroDeConsulta = numeroDeConsulta++;
         this.mascota = mascota;
         this.diagnostico = diagnostico;
         this.fecha = LocalDateTime.now();
@@ -62,10 +66,13 @@ public class Expediente {
 ///nota crear un metodo para imprimir el expediente y la mascota por separado
 
     public void imprimirInformacion(){
-        System.out.println("Numero de consulta: "+numeroDeConsulta);
+        System.out.println("Numero de consulta: "+id);
         System.out.println("Fecha de consulta: "+fecha);
         System.out.println("Diagnostico: "+diagnostico);
         System.out.println("Veterinario: "+veterinario);
+    }
+
+    public void imprimirMascota(){
         System.out.println("Edad: "+mascota.getEdad());
         System.out.println("Peso: "+mascota.getPeso());
         System.out.println("Altura: "+mascota.getAltura());

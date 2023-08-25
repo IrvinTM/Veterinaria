@@ -2,10 +2,7 @@
 package tm22012;
 import java.util.ArrayList;
 
-/**
- *
- * @author Test
- */
+
 public class Veterinaria {
 
     public ArrayList<Expediente> expedientes = new ArrayList<Expediente>();

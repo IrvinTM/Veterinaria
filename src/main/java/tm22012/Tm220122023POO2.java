@@ -1,58 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
----------COSAS POR TEMINAR EN EL PROGRAMA----------
----- crear un metodo para imprimir el expediente y la mascota por separado y agregar la opcion al menu//done
-----sumar uno al sub menu de citas para que coincida y sea mas intuitivo//done 
-----agregar el atributo de el precio con el metodo para clacularlo
----- arreglar la fecha automatica//done
-----arreglar que no imprime el tipo de mascota y quye imprime el mis objeto mascota siempre// done
-----
- */
-
 package tm22012;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Test
- */
 public class Tm220122023POO2 {
 
     public static void main(String[] args) {
 
-        int opcion;
+        int opcion =0 ;
         
         
         Veterinaria local1 = new Veterinaria();
 
 
         do {
-            System.out.println("---Bienvenido al menu---");
-        System.out.println("Ingrese la opcion deseada");
-        System.out.println("1.  Ingresar una nueva cita");
-        System.out.println("2.  Mostrar citas");
-        System.out.println("0. Salir");
+            try {
+                System.out.println("------------------------------");
+                System.out.println("  *** Bienvenido al menu  ***");
+                System.out.println("  *** Ingrese una opcion ***");
+                System.out.println("------------------------------");
+                System.out.println("1. Ingresar una nueva cita");
+                System.out.println("2. Mostrar citas");
+                System.out.println("3. Salir");
+                System.out.println("------------------------------");
+                
+                System.out.print("Seleccione una opcion: ");
+    
         Scanner teclado = new Scanner(System.in);
         opcion = teclado.nextInt();
-        
+
+
 
         switch (opcion) {
             case 1:
             Mascota mascota1 = new Mascota();
             Expediente expediente1 = new Expediente();
                 System.out.println("Ingresanddo informaacion de la cita");
-                System.out.println("Ingrese la edad de su mascota");
+                System.out.println("------------------------------");
+                System.out.println("Ingrese la edad de su mascota en años");
                 mascota1.setEdad(teclado.nextInt());
-                System.out.println("Ingrese el peso de su mascota");
+                System.out.println("Ingrese el peso de su mascota(lb)");
                 mascota1.setPeso(teclado.nextFloat());
-                System.out.println("Ingrese la altura de su mascota");
+                System.out.println("Ingrese la altura de su mascota(cm)");
                 mascota1.setAltura(teclado.nextFloat());
                 teclado.nextLine();
-                System.out.println("Ingrese el tipo de mascota");
+                System.out.println("Ingrese el tipo de mascota(perro, gato, etc)");
                 mascota1.setTipoDeMascota(teclado.nextLine());
                 
                 System.out.println("Ingrese la informacion del expediente");
+                System.out.println("------------------------------");
                 expediente1.setMascota(mascota1);
                 System.out.println("Ingrese el diagnostico de la mascota");
                 expediente1.setDiagnostico(teclado.nextLine());
@@ -60,8 +55,9 @@ public class Tm220122023POO2 {
                 expediente1.setVeterinario(teclado.nextLine());
                 try {
                 local1.agregarExpediente(expediente1);
+                System.out.println("------------------------------");
                 System.out.println("Numero de expedientes en archivo"+local1.expedientes.size());
-                System.out.println("Mascota agregada con exito");
+                System.out.println("Registro exitoso");
                 }
                     
                  catch (Exception e) {
@@ -71,14 +67,17 @@ public class Tm220122023POO2 {
             case 2:
             int opt;
             int nCita;
-                //System.out.println("Seleccione la cita a mostrar");
-               // System.out.println(Expediente.getNumeroDeConsulta());
-               System.out.println("Mostrar los detalles de las citas");
+               System.out.println("--------------CITAS----------------");
                 System.out.println("Ingrese el numero de cita a mostrar");
-                System.out.println("Citas disponibles: "+ local1.expedientes.size());
+                System.out.println("Citas disponibles:  "+ local1.expedientes.size());
+                if (local1.expedientes.isEmpty()) {
+                    System.out.println("No hay citas disponibles");
+                    break;
+                }
                 nCita = (teclado.nextInt()-1);
                 System.out.println("Cita numero: "+ (nCita+1) +" escojida");
-
+                System.out.println("------------------------------");
+                System.out.println("-----Seleccione una opcion-----");
                 System.out.println("1. Mostrar informacion del expediente");
                 System.out.println("2. Mostrar informacion de la mascota");
                 opt = teclado.nextInt();
@@ -99,10 +98,16 @@ public class Tm220122023POO2 {
                 break;
 
             default:
-                System.out.println("Gracias por usar el programa");
+                System.out.println("._. ._.");
+        
                 break;
         }
-        } while (opcion != 0);
+                
+            } catch (Exception e) {
+                System.out.println("Entrada no valida intente de nuevo !!!");
+            }
+           
+        } while (opcion != 3);
 
         
 

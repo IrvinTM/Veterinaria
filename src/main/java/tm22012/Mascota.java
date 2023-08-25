@@ -1,10 +1,6 @@
 
 package tm22012;
 
-/**
- *
- * @author Test
- */
 public class Mascota {
     private int edad;
     private float peso;

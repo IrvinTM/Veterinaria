@@ -3,10 +3,7 @@ package tm22012;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- *
- * @author Test
- */
+
 public class Expediente {
     private Mascota mascota;
     private static int numeroDeConsulta =0;
@@ -69,21 +66,28 @@ public class Expediente {
     public Mascota getMascota() {
         return mascota;
     }
-///nota crear un metodo para imprimir el expediente y la mascota por separado
 
     public void imprimirInformacion(){
+        System.out.println("------------------------------");
+        System.out.println("----------Expediente----------");
+        System.out.println("------------------------------");
         System.out.println("Numero de consulta: "+id);
         System.out.println("Fecha de consulta: "+fecha);
         System.out.println("Diagnostico: "+diagnostico);
         System.out.println("Veterinario: "+veterinario);
-        System.out.println("Precio de la consulta: "+precioConsulta);
+        System.out.println("Precio de la consulta: $"+precioConsulta);
+        System.out.println("------------------------------");
     }
 
     public void imprimirMascota(){
+        System.out.println("------------------------------");
+        System.out.println("----------Mascota----------");
+        System.out.println("------------------------------");
         System.out.println("Edad: "+mascota.getEdad());
         System.out.println("Peso: "+mascota.getPeso());
         System.out.println("Altura: "+mascota.getAltura());
         System.out.println("Tipo de mascota: "+mascota.getTipoDeMascota());
+        System.out.println("------------------------------");
     }
 
     public void calcularPrecio(){
